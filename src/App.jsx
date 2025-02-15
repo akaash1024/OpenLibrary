@@ -7,6 +7,8 @@ import { Login } from "./pages/User-Auth/Login";
 import { Register } from "./pages/User-Auth/Register";
 import { Book } from "./pages/Book";
 import { ErrorPage } from "./pages/ErrorPage";
+import { ToastContainer } from "react-toastify";
+import { AuthProvider } from "../AuthContextStore";
 
 const route = createBrowserRouter([
   {
@@ -37,7 +39,26 @@ const route = createBrowserRouter([
 ]);
 
 const App = () => {
-  return <RouterProvider router={route} />;
+  return (
+    <>
+      <AuthProvider>
+        <RouterProvider router={route} />;
+        <ToastContainer
+          position="top-right"
+          autoClose={3000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="colored"
+          bodyClassName="toastBody"
+        />
+      </AuthProvider>
+    </>
+  );
 };
 
 export default App;

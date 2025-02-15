@@ -18,13 +18,16 @@ export const Header = () => {
               <NavLink to="/">Home</NavLink>
             </li>
             <li>
+              <NavLink to="/about">About</NavLink>
+            </li>
+            <li>
               <NavLink to="/book">Book</NavLink>
             </li>
             <li>
               <NavLink to="/contact">Contact</NavLink>
             </li>
 
-            {true ? (
+            {false ? (
               <li>
                 <NavLink to="/logout">Logout</NavLink>
               </li>

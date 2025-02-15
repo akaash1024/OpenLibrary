@@ -1,9 +1,26 @@
-import { createContext, useContext } from "react";
+import { createContext, useContext, useState } from "react";
+import axios from "axios";
 
 const AuthContext = createContext();
 
-export const AuthProvide = ({ children }) => {
-  return <AuthContext value={{}}>{children}</AuthContext>;
+export const AuthProvider = ({ children }) => {
+  const [token, setToken] = useState(() => localStorage.getItem("token"));
+
+  const api = axios.create({
+    baseURL: "http://localhost:3000",
+    headers: { "Content-Type": "application/json" },
+  });
+
+  const storeTokenInLs = (serverToken) => {
+    setToken(serverToken);
+    localStorage.setItem("token", serverToken);
+  };
+
+  return (
+    <AuthContext.Provider value={{ api, storeTokenInLs }}>
+      {children}
+    </AuthContext.Provider>
+  );
 };
 
-const useAuth = () => useContext(AuthContext);
+export const useAuth = () => useContext(AuthContext);
