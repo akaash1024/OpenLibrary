@@ -9,6 +9,7 @@ import { Book } from "./pages/Book";
 import { ErrorPage } from "./pages/ErrorPage";
 import { ToastContainer } from "react-toastify";
 import { AuthProvider } from "../AuthContextStore";
+import { Logout } from "./pages/User-Auth/Logout";
 
 const route = createBrowserRouter([
   {
@@ -22,6 +23,7 @@ const route = createBrowserRouter([
       { path: "/contact", element: <Contact /> },
       { path: "/login", element: <Login /> },
       { path: "/register", element: <Register /> },
+      { path: "/logout", element: <Logout /> },
 
       /*
       {
