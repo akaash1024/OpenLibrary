@@ -7,7 +7,7 @@ export const Login = () => {
   const navigate = useNavigate();
   const initialUserForm = { email: "", password: "" };
   const [user, setUser] = useState(initialUserForm);
-  const { api, storeTokenInLs } = useAuth();
+  const { api, storeTokenInLS } = useAuth();
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -21,7 +21,7 @@ export const Login = () => {
       console.log("Response from server:", data);
 
       if (data.success && data.data.token) {
-        storeTokenInLs(data.data.token);
+        storeTokenInLS(data.data.token);
 
         setUser(initialUserForm);
 
@@ -40,10 +40,6 @@ export const Login = () => {
   return (
     <div className="container" id="login">
       <div className="login-grid">
-        <div className="login-left-img">
-          <img src="#" alt="Login image" />
-        </div>
-
         <div className="login-right-form">
           <h1>Login</h1>
           <form onSubmit={handleSubmit}>
@@ -67,6 +63,10 @@ export const Login = () => {
             />
             <button type="submit">login</button>
           </form>
+        </div>
+
+        <div className="login-left-img">
+          <img src="/login.png" alt="Login image" width={400} />
         </div>
       </div>
     </div>

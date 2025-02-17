@@ -10,6 +10,10 @@ import { ErrorPage } from "./pages/ErrorPage";
 import { ToastContainer } from "react-toastify";
 import { AuthProvider } from "../AuthContextStore";
 import { Logout } from "./pages/User-Auth/Logout";
+import { AdminLayout } from "./pages/Admin/AdminLayout";
+import { AdminUser } from "./pages/Admin/AdminUser";
+import { AdminAuthor } from "./pages/Admin/AdminAuthor";
+import { AdminContact } from "./pages/Admin/AdminContact";
 
 const route = createBrowserRouter([
   {
@@ -24,18 +28,18 @@ const route = createBrowserRouter([
       { path: "/login", element: <Login /> },
       { path: "/register", element: <Register /> },
       { path: "/logout", element: <Logout /> },
-
-      /*
       {
         path: "/admin",
+        element: <AdminLayout />,
         children: [
-          { path: "user", element: <User /> },
-          { path: "author", element: <Author /> },
-          { path: "Book", element: <Book /> },
-          { path: "Book", element: <Book /> },
+          { path: "users", element: <AdminUser /> },
+          { path: "authors", element: <AdminAuthor /> },
+          { path: "books", element: <Book /> },
+          { path: "contacts", element: <AdminContact /> },
+          
+          // { path: "contact", element: <AdminContact /> },
         ],
       },
-    */
     ],
   },
 ]);

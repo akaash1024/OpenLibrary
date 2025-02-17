@@ -7,7 +7,7 @@ export const Register = () => {
   const navigate = useNavigate();
   const initialUserForm = { name: "", email: "", password: "" };
   const [user, setUser] = useState(initialUserForm);
-  const { api, storeTokenInLs } = useAuth();
+  const { api, storeTokenInLS } = useAuth();
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -21,7 +21,7 @@ export const Register = () => {
       console.log("Response from server:", data);
 
       if (data.newUserDetails?.token) {
-        storeTokenInLs(data.newUserDetails.token);
+        storeTokenInLS(data.newUserDetails.token);
         setUser(initialUserForm);
         toast.success(data.message);
         navigate("/");
@@ -38,7 +38,7 @@ export const Register = () => {
     <div className="container" id="register">
       <div className="register-grid">
         <div className="register-left-img">
-          <img src="#" alt="Registration image" />
+          <img src="/register.png" alt="Registration image"  height={500} width={400}/>
         </div>
 
         <div className="register-right-form">
